@@ -34,5 +34,15 @@ RSpec.describe LogParser do
         )
       end
     end
+
+    context 'when given an INvalid file path' do
+      subject { log_parser.parse(file_name) { |_| puts 'never reached' } }
+
+      let(:file_name) { 'does-not-exist.log' }
+
+      it 'raises a custom error to explain the problem' do
+        expect { subject }.to raise_error(LogParser::NonExistentFile)
+      end
+    end
   end
 end
