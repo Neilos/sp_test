@@ -11,7 +11,7 @@ A script that can process a simple webserver.log of the following format...
 etc...
 ```
 
-...and count views and unique visits
+...and count visits and unique views
 
 ## Dependencies
 
@@ -20,7 +20,7 @@ etc...
 
 ## Usage
 
-- `./bin/parser.rb webserver.log` returns a list of webpages with their page views. The list of paths is ordered from most page views to least page views.
+- `./bin/parser.rb webserver.log --count visits` returns a list of webpages with their page visits. The list of paths is ordered from most page visits to least page visits.
   - e.g.:
   ```
   /home 90 visits
@@ -28,7 +28,7 @@ etc...
   etc...
   ```
 
-- It also produces a list of webpages with their unique page views. The list of paths is ordered from most unique visits to least unique visits.
+- `./bin/parser.rb webserver.log --count unique_views` list of webpages with their unique page views. The list of paths is ordered from most unique visits to least unique visits.
   - e.g.:
   ```
   /about/2 8 unique views
