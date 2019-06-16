@@ -7,6 +7,10 @@ class VisitsCounter
     @path_counts = path_counts
   end
 
+  def process(log_entry)
+    path_counts[log_entry.path] += 1
+  end
+
   def to_s
     path_counts
       .sort_by { |path, count| [-count, path] } # descending order
