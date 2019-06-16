@@ -9,6 +9,12 @@ class UniqueViewsCounter
     @path_ips = path_ips
   end
 
+  def process(log_entry)
+    path = log_entry.path
+    path_ips[path] ||= Set.new
+    path_ips[path] << log_entry.ip_address
+  end
+
   def to_s
     path_ips
       .sort_by { |path, ips| [-ips.count, path] } # descending order
